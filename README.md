@@ -4,7 +4,6 @@
 Buka `index.html` di browser (perlu internet untuk Bootstrap/ikon/font dari CDN).
 
 Front-end
-- Admin: admin@tumbuloka.com / admin123 (tab "Admin")
 - Pengguna: user@tumbuloka.com / user123 (tab "Pengguna")
 
 Struktur
