@@ -5,6 +5,7 @@ Buka `index.html` di browser (perlu internet untuk Bootstrap/ikon/font dari CDN)
 
 Front-end
 - Pengguna: user@tumbuloka.com / user123 (tab "Pengguna")
+- juga bisa dapat membuat daftar pengguna baru
 
 Struktur
 - index.html (login), register.html (daftar), app.html (aplikasi)
