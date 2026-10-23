@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tumbuloka - Kebun Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar" aria-label="Menu utama">
+  <div class="brand mb-2 px-1">
+    <span class="brand-mark"><i class="bi bi-flower1"></i></span>
+    <div><span class="brand-name">Tumbuloka</span></div>
+  </div>
+
+  <div class="side-label">KELOLA KEBUN</div>
+  <nav>
+    <a class="nav-item-tb" href="#/beranda" data-route="beranda"><i class="bi bi-house-door"></i>Beranda</a>
+    <a class="nav-item-tb" href="#/kategori" data-route="kategori"><i class="bi bi-grid"></i>Kategori Tanaman</a>
+    <a class="nav-item-tb" href="#/tanaman" data-route="tanaman filter"><i class="bi bi-flower2"></i>Data Tanaman</a>
+    <a class="nav-item-tb" href="#/jenis" data-route="jenis"><i class="bi bi-droplet"></i>Jenis Perawatan</a>
+    <a class="nav-item-tb" href="#/catatan" data-route="catatan"><i class="bi bi-journal-text"></i>Catatan Perawatan</a>
+    <a class="nav-item-tb" href="#/riwayat" data-route="riwayat"><i class="bi bi-clock-history"></i>Riwayat Perawatan</a>
+    <a class="nav-item-tb" href="#/rekap" data-route="rekap"><i class="bi bi-bar-chart"></i>Rekap &amp; Laporan</a>
+  </nav>
+
+  <div id="adminNav" class="d-none">
+    <div class="side-label">ADMIN</div>
+    <a class="nav-item-tb" href="#/pengguna" data-route="pengguna"><i class="bi bi-people"></i>Kelola Pengguna</a>
+  </div>
+
+  <div class="side-tip">
+    <i class="bi bi-leaf fs-5" style="color:var(--tb-600)"></i>
+    <b>Tumbuh dengan terawat</b>
+    Catat perawatan kecil, lihat perubahan besar.
+  </div>
+
+  <div class="dropup">
+    <button class="side-user" data-bs-toggle="dropdown" aria-expanded="false">
+      <span class="avatar" id="uAvatar">P</span>
+      <span class="flex-grow-1"><span class="u-name d-block" id="uName">Pengguna</span><span class="u-sub" id="uSub">Kebun pribadi</span></span>
+      <i class="bi bi-chevron-expand text-muted"></i>
+    </button>
+    <ul class="dropdown-menu w-100 shadow-sm">
+      <li><span class="dropdown-item-text small text-muted" id="uEmail"></span></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><button class="dropdown-item" data-action="reset-data"><i class="bi bi-arrow-counterclockwise me-2"></i>Reset data kebun</button></li>
+      <li><button class="dropdown-item text-danger" data-action="logout"><i class="bi bi-box-arrow-right me-2"></i>Keluar</button></li>
+    </ul>
+  </div>
+</aside>
+<div class="backdrop-tb" id="backdrop"></div>
+
+<!-- Konten -->
+<div class="main">
+  <header class="topbar">
+    <div class="d-flex align-items-center gap-2">
+      <button class="btn btn-outline-tb d-lg-none px-2" data-action="nav-toggle" aria-label="Buka menu"><i class="bi bi-list fs-5"></i></button>
+      <div class="crumb">Kebun saya <i class="bi bi-chevron-right mx-1 small"></i> <b id="crumb">Beranda</b></div>
+    </div>
+    <div class="d-flex align-items-center gap-3">
+      <span class="small text-muted d-none d-md-inline" id="todayLabel"></span>
+      <div class="dropdown">
+        <button class="bell" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifikasi">
+          <i class="bi bi-bell"></i><span class="dot d-none" id="bellDot">0</span>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end p-2 shadow-sm" style="min-width:260px" id="bellMenu"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="content" id="view" tabindex="-1"></main>
+</div>
+
+<!-- Modal form umum -->
+<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-2">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title" id="formModalTitle"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+      </div>
+      <div class="modal-body" id="formModalBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal konfirmasi -->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content p-2">
+      <div class="modal-body text-center">
+        <i class="bi bi-exclamation-circle fs-1" style="color:var(--tb-danger)"></i>
+        <h5 class="mt-2" id="confirmTitle">Hapus data?</h5>
+        <p class="small text-muted" id="confirmMsg"></p>
+        <div class="d-flex gap-2 justify-content-center">
+          <button class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+          <button class="btn btn-danger" id="confirmYes">Ya, hapus</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toasts" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
