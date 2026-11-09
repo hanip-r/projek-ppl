@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Masuk - Tumbuloka</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="auth-page">
+    <header class="auth-top">
+      <div class="brand">
+        <span class="brand-mark"><i class="bi bi-flower1"></i></span>
+        <div><span class="brand-name">Tumbuloka</span><small>Catat tanaman. Rawat dengan terencana.</small></div>
+      </div>
+      <div class="tb-card px-3 py-2 small d-none d-sm-block">
+        <span class="fw-semibold" style="color:var(--tb-800)">Belum punya akun?</span>
+        <a href="register.html" class="fw-bold ms-1">Daftar</a>
+      </div>
+    </header>
+
+    <main class="auth-main">
+      <div class="row g-4 g-xl-5 align-items-start">
+        <!-- Kolom kiri: hero -->
+        <section class="col-lg-6 col-xl-7 order-2 order-lg-1">
+          <span class="pill">Login untuk melanjutkan</span>
+          <h1 class="hero-title">Masuk ke kebun digital Anda</h1>
+          <p class="text-muted mb-4" style="max-width:520px">
+            Akses kategori, data tanaman, perawatan, catatan, riwayat, dan laporan kebun Anda dari satu tempat.
+          </p>
+
+          <div class="preview-wrap" style="max-width:540px">
+            <div class="tb-card p-3 mb-3">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <div>
+                  <h5 class="mb-0 fs-6">Kebun saya</h5>
+                  <small class="text-muted">12 tanaman · 5 kategori</small>
+                </div>
+                <span class="pill">Aktif</span>
+              </div>
+              <div class="row g-2">
+                <div class="col-4">
+                  <div class="mini-stat"><small>Tanaman</small><b>12</b></div>
+                </div>
+                <div class="col-4">
+                  <div class="mini-stat"><small>Aktivitas</small><b>28</b></div>
+                </div>
+                <div class="col-4">
+                  <div class="mini-stat"><small>Sehat</small><b>10</b></div>
+                </div>
+              </div>
+            </div>
+            <div class="tb-card p-3">
+              <h5 class="fs-6 mb-2">Fitur yang siap digunakan</h5>
+              <ul class="feature-list">
+                <li>Kelola kategori tanaman</li>
+                <li>Catat data tanaman dan kondisi</li>
+                <li>Atur jadwal perawatan dan catatan</li>
+                <li>Lihat riwayat dan laporan kebun</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Kolom kanan: form login -->
+        <section class="col-lg-6 col-xl-5 order-1 order-lg-2">
+          <div class="tb-card auth-card" style="max-width:480px">
+            <h2 class="fs-2 mb-1" id="loginTitle">Masuk ke Tumbuloka</h2>
+            <p class="text-muted small mb-3">Gunakan email dan kata sandi untuk mengakses kebun digital Anda.</p>
+
+            <div class="role-tabs mb-3" role="tablist" aria-label="Pilih jenis akun">
+              <button type="button" class="active" data-role="pengguna" role="tab" aria-selected="true"><i
+                  class="bi bi-person me-1"></i>Pengguna</button>
+              <button type="button" data-role="admin" role="tab" aria-selected="false"><i
+                  class="bi bi-shield-lock me-1"></i>Admin</button>
+            </div>
+
+            <div id="loginAlert" class="alert alert-danger py-2 small d-none" role="alert"></div>
+
+            <form id="loginForm" novalidate autocomplete="on">
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="nama@email.com" required
+                  autocomplete="username">
+                <div class="invalid-feedback">Masukkan email yang valid.</div>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Kata sandi</label>
+                <div class="position-relative">
+                  <input type="password" class="form-control pe-5" id="password" name="password"
+                    placeholder="Masukkan kata sandi" required minlength="6" autocomplete="current-password">
+                  <button type="button" class="pw-toggle" id="pwToggle" aria-label="Tampilkan kata sandi"><i
+                      class="bi bi-eye"></i></button>
+                  <div class="invalid-feedback">Kata sandi minimal 6 karakter.</div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="remember">
+                  <label class="form-check-label small text-muted" for="remember">Ingat saya</label>
+                </div>
+                <a href="#" class="small fw-bold" id="forgotLink">Lupa kata sandi?</a>
+              </div>
+              <button type="submit" class="btn btn-primary w-100 py-2" id="loginBtn">Masuk</button>
+            </form>
+
+            <div class="divider">atau masuk dengan</div>
+            <button type="button" class="btn btn-light w-100 py-2" id="googleBtn"><i
+                class="bi bi-google me-2"></i>Lanjutkan dengan Google</button>
+
+            <p class="text-center small text-muted mt-3 mb-3">Belum punya akun? <a href="register.html"
+                class="fw-bold">Daftar sekarang</a></p>
+
+            <div class="demo-box">
+              <div id="demoText"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal lupa kata sandi -->
+  <div class="modal fade" id="forgotModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-2">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title">Atur ulang kata sandi</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <p class="small text-muted">Karena tanpa server, kata sandi baru langsung diatur di browser ini (simulasi).
+          </p>
+          <form id="forgotForm" novalidate>
+            <div class="mb-3">
+              <label class="form-label" for="fEmail">Email akun</label>
+              <input type="email" class="form-control" id="fEmail" required>
+              <div class="invalid-feedback">Masukkan email yang valid.</div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="fPass">Kata sandi baru</label>
+              <input type="password" class="form-control" id="fPass" minlength="6" required>
+              <div class="invalid-feedback">Minimal 6 karakter.</div>
+            </div>
+            <div id="forgotMsg" class="small mb-3 d-none"></div>
+            <div class="d-flex justify-content-end gap-2">
+              <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/login.js"></script>
+</body>
+
+</html>
