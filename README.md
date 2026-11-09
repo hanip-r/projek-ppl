@@ -4,8 +4,8 @@
 Buka `index.html` di browser (perlu internet untuk Bootstrap/ikon/font dari CDN).
 
 Front-end
-- Pengguna: user@tumbuloka.com / user123 (tab "Pengguna")
-- juga bisa dapat membuat daftar pengguna baru
+- tanpa ada nya fitur login dan bisa di akses oleh siapa aja yang memiliki tanman yang ada di daftar tanaman
+- pengguna/pemilik tanaman bisa memilih tanman dan melakukan penjadwalan sendiri
 
 Struktur
 - index.html (login), register.html (daftar), app.html (aplikasi)
